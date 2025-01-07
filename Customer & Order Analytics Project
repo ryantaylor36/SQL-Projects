@@ -58,3 +58,32 @@ AND length(orderid) = 6
 AND orderid <> 'Order ID';
 
 
+#Which orders were placed between February 13th, 2019 and February 18th, 2019?
+select orderdate
+from bit_db.FebSales
+where orderdate between '02/13/19 00:00' and '02/18/19 00:00';
+
+
+#There was an order placed on Feburary 18th, 2019 at 01:35.  What was the location for that order?
+select location
+from bit_db.FebSales
+where orderdate='02/18/19 01:35';
+
+
+#How many orders were placed on February 18th, 2019?
+select sum(quantity)
+from BIT_DB.FebSales
+WHERE orderdate like '02/18/19%';
+
+
+#What types of batteries were ordered in February?
+select distinct Product
+from bit_db.Febsales
+where product like '%Batteries%';
+
+
+#What products were ordered in Los Angeles in February?  And How many of each product was ordered?
+select product, sum(quantity)
+from bit_db.FebSales
+where location like '%Los Angeles%'
+group by product;
