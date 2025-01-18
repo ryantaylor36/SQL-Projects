@@ -29,33 +29,33 @@ time_signature integer NOT NULL );
 
 
 #Who are the top 10 most popular artists?
-select artist_name, popularity
-from bit_db.Spotifydata
-order by popularity desc
-limit 10;
+SELECT artist_name, popularity
+FROM bit_db.Spotifydata
+ORDER BY popularity desc
+LIMIT 10;
 
 
 #What is the average tempo of the songs?
-select avg(tempo)
-from bit_db.Spotifydata;
+SELECT AVG(tempo)
+FROM bit_db.Spotifydata;
 
 
 #What is the tempo for the most popular song?
-select artist_name, track_name, tempo
-from bit_db.Spotifydata
-order by popularity desc
-limit 1;
+SELECT artist_name, track_name, tempo
+FROM bit_db.Spotifydata
+ORDER BY popularity desc
+LIMIT 1;
 
 
 #Which songs include the word 'You' or 'Your' in the title?
-select track_name, artist_name
-from bit_db.Spotifydata
-where track_name like '%You%';
+SELECT track_name, artist_name
+FROM bit_db.Spotifydata
+WHERE track_name like '%You%';
 
 
 #Which songs featured have Justin Bieber as the main or featured artist?  How popular are these songs?
-select track_name, popularity
-from bit_db.Spotifydata
-where artist_name like 'Justin Bieber'
-or track_name like'%Justin Bieber%'
-order by popularity desc;
+SELECT track_name, popularity
+FROM bit_db.Spotifydata
+WHERE artist_name like 'Justin Bieber'
+OR track_name like'%Justin Bieber%'
+ORDER BY popularity desc;
