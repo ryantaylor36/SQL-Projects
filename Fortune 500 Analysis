@@ -60,28 +60,28 @@ VALUES
 
 
 #Which companies offer healthcare?
-select company_name,
-case
-	when healthcare_benefits=1 then 'Yes'
-    when healthcare_benefits=0 then 'No'
-    end as Offers_healthcare
-from fortune_companies;
+SELECT company_name,
+CASE
+WHEN healthcare_benefits=1 then 'Yes'
+WHEN healthcare_benefits=0 then 'No'
+end as Offers_healthcare
+FROM fortune_companies;
 
 
 #Which industries have average paid time off of more than 20 days?
-select industry, avg(paid_time_off_days)
-from fortune_companies
-group by industry
-having avg(paid_time_off_days)>=20;
+SELECT industry, avg(paid_time_off_days)
+FROM fortune_companies
+GROUP BY industry
+HAVING AVG(paid_time_off_days)>=20;
 
 
 #Which companies offer more than 20 days of paid time off and more than 12 weekes of maternity leave?
-select *
-from fortune_companies
-where paid_time_off_days>=20 and maternity_leave_weeks>=12;
+SELECT *
+FROM fortune_companies
+WHERE paid_time_off_days>=20 and maternity_leave_weeks>=12;
 
 
 #At which company do employees stay the longest?
-select company_name, max(avg_employee_tenure)
-from fortune_companies;
+SELECT company_name, max(avg_employee_tenure)
+FROM fortune_companies;
 
